@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Create from "./pages/Create";
 import Notes from "./pages/Notes";
 import { createTheme, ThemeProvider } from "@material-ui/core";
-import { purple } from "@material-ui/core/colors";
+import { green, orange, pink, purple } from "@material-ui/core/colors";
 import Layout from "./components/Layout";
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       primary: {
         main: "#FFE194",
       },
-      secondary: purple,
+      secondary: green,
     },
     typography: {
       fontFamily: "Quicksand",
