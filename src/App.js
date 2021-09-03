@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Create from "./pages/Create";
 import Notes from "./pages/Notes";
 import { createTheme, ThemeProvider } from "@material-ui/core";
-import { green, orange, pink, purple } from "@material-ui/core/colors";
+import { green } from "@material-ui/core/colors";
 import Layout from "./components/Layout";
 
 function App() {
