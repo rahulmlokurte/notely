@@ -16,6 +16,7 @@ import { AddCircleOutlined, SubjectOutlined } from "@material-ui/icons";
 import { format } from "date-fns";
 import React from "react";
 import { useHistory, useLocation } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => {
@@ -59,6 +60,7 @@ export default function Layout({ children }) {
   const classes = useStyles();
   const history = useHistory();
   const location = useLocation();
+  const { loginWithRedirect } = useAuth0();
   const menuItems = [
     {
       text: "My Notes",
@@ -74,6 +76,7 @@ export default function Layout({ children }) {
 
   const handleSignInButton = () => {
     console.log("I am Clicked");
+    loginWithRedirect();
   };
   return (
     <div className={classes.root}>
