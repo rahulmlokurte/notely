@@ -1,6 +1,7 @@
 import {
   AppBar,
   Avatar,
+  Button,
   Drawer,
   List,
   ListItem,
@@ -49,6 +50,9 @@ const useStyles = makeStyles((theme) => {
     avatar: {
       marginLeft: theme.spacing(2),
     },
+    button: {
+      marginRight: theme.spacing(2),
+    },
   };
 });
 export default function Layout({ children }) {
@@ -67,6 +71,10 @@ export default function Layout({ children }) {
       path: "/create",
     },
   ];
+
+  const handleSignInButton = () => {
+    console.log("I am Clicked");
+  };
   return (
     <div className={classes.root}>
       {/* app bar */}
@@ -75,6 +83,14 @@ export default function Layout({ children }) {
           <Typography className={classes.dates}>
             Today is the {format(new Date(), "do MMMM Y")}
           </Typography>
+          <Button
+            variant="contained"
+            color="secondary"
+            className={classes.button}
+            onClick={handleSignInButton}
+          >
+            Sign In
+          </Button>
           <Typography>Rahul Lokurte</Typography>
           <Avatar src="/rahul-lokurte.png" className={classes.avatar} />
         </Toolbar>
