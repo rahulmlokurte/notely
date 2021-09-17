@@ -1,6 +1,5 @@
 import {
   AppBar,
-  Avatar,
   Drawer,
   List,
   ListItem,
@@ -85,10 +84,8 @@ export default function Layout({ children }) {
           <Typography className={classes.dates}>
             Today is the {format(new Date(), "do MMMM Y")}
           </Typography>
-          <Typography className={classes.name}>Rahul Lokurte</Typography>
           <LoginButton />
           <LogoutButton />
-          <Avatar src="/rahul-lokurte.png" className={classes.avatar} />
         </Toolbar>
       </AppBar>
       {/* side drawer */}

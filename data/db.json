@@ -23,6 +23,12 @@
       "details": "Write a Blog",
       "category": "personal",
       "id": 4
+    },
+    {
+      "title": "Devops Learning",
+      "details": "Need to Learn devops",
+      "category": "personal",
+      "id": 5
     }
   ]
 }

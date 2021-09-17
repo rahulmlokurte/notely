@@ -1,12 +1,29 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { Button } from "@material-ui/core";
+import { Button, Typography, makeStyles, Avatar } from "@material-ui/core";
+
+const useStyles = makeStyles((theme) => {
+  return {
+    name: {
+      marginRight: theme.spacing(2),
+    },
+    avatar: {
+      marginRight: theme.spacing(2),
+    },
+    root: {
+      display: "flex",
+    },
+  };
+});
 
 function LogoutButton() {
-  const { logout, isAuthenticated } = useAuth0();
+  const classes = useStyles();
+  const { logout, isAuthenticated, user } = useAuth0();
   return (
     isAuthenticated && (
-      <div>
+      <div className={classes.root}>
+        <Typography className={classes.name}>{user.name}</Typography>
+        <Avatar src={user.picture} className={classes.avatar} />
         <Button variant="contained" color="secondary" onClick={() => logout()}>
           Signout
         </Button>
