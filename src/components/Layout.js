@@ -1,7 +1,6 @@
 import {
   AppBar,
   Avatar,
-  Button,
   Drawer,
   List,
   ListItem,
@@ -16,7 +15,9 @@ import { AddCircleOutlined, SubjectOutlined } from "@material-ui/icons";
 import { format } from "date-fns";
 import React from "react";
 import { useHistory, useLocation } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
+import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
+import Profile from "./Profile";
 
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => {
@@ -51,8 +52,8 @@ const useStyles = makeStyles((theme) => {
     avatar: {
       marginLeft: theme.spacing(2),
     },
-    button: {
-      marginRight: theme.spacing(2),
+    name: {
+      padding: theme.spacing(2),
     },
   };
 });
@@ -60,7 +61,6 @@ export default function Layout({ children }) {
   const classes = useStyles();
   const history = useHistory();
   const location = useLocation();
-  const { loginWithRedirect } = useAuth0();
   const menuItems = [
     {
       text: "My Notes",
@@ -74,10 +74,6 @@ export default function Layout({ children }) {
     },
   ];
 
-  const handleSignInButton = () => {
-    console.log("I am Clicked");
-    loginWithRedirect();
-  };
   return (
     <div className={classes.root}>
       {/* app bar */}
@@ -86,15 +82,10 @@ export default function Layout({ children }) {
           <Typography className={classes.dates}>
             Today is the {format(new Date(), "do MMMM Y")}
           </Typography>
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.button}
-            onClick={handleSignInButton}
-          >
-            Sign In
-          </Button>
-          <Typography>Rahul Lokurte</Typography>
+          <Typography className={classes.name}>Rahul Lokurte</Typography>
+          <LoginButton />
+          <LogoutButton />
+          <Profile />
           <Avatar src="/rahul-lokurte.png" className={classes.avatar} />
         </Toolbar>
       </AppBar>
