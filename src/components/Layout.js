@@ -17,6 +17,7 @@ import React from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => {
@@ -60,6 +61,7 @@ export default function Layout({ children }) {
   const classes = useStyles();
   const history = useHistory();
   const location = useLocation();
+  const { isLoading } = useAuth0();
   const menuItems = [
     {
       text: "My Notes",
@@ -72,6 +74,8 @@ export default function Layout({ children }) {
       path: "/create",
     },
   ];
+
+  if (isLoading) return <div>Loading...</div>;
 
   return (
     <div className={classes.root}>
