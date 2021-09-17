@@ -3,17 +3,19 @@ import { Button } from "@material-ui/core";
 import React from "react";
 
 function LoginButton() {
-  const { loginWithRedirect } = useAuth0();
+  const { loginWithRedirect, isAuthenticated } = useAuth0();
   return (
-    <div>
-      <Button
-        variant="contained"
-        color="secondary"
-        onClick={() => loginWithRedirect()}
-      >
-        Sign In
-      </Button>
-    </div>
+    !isAuthenticated && (
+      <div>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => loginWithRedirect()}
+        >
+          Sign In
+        </Button>
+      </div>
+    )
   );
 }
 

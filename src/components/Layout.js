@@ -17,7 +17,6 @@ import React from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
-import Profile from "./Profile";
 
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => {
@@ -85,7 +84,6 @@ export default function Layout({ children }) {
           <Typography className={classes.name}>Rahul Lokurte</Typography>
           <LoginButton />
           <LogoutButton />
-          <Profile />
           <Avatar src="/rahul-lokurte.png" className={classes.avatar} />
         </Toolbar>
       </AppBar>
